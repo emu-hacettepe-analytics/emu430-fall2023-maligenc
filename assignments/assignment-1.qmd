@@ -2,14 +2,12 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
-
 ```{r}
 1 + 1
 ```
 
 My first assignment has two parts.
 
-## (a)
+## (a)  <https://www.youtube.com/watch?v=DGrszAeMZJI> I watched this video because the requirement said "Any R-related video" and answering the question might be fun but apperently I was wrong because video was not funny and honestly I cannot say that I totally understand. But I am submitting this assignment way past the due date, and doesn't expect a grade or a evaluation, so I hope this silly answer at least bring a smile to your face
 
 ## (b)

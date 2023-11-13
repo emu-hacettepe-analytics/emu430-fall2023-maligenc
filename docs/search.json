@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Welcome to My Analytics Lab",
     "section": "",
-    "text": "Hello! My name is xxx xxxx.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\nThis is our template.\n\n\n\n Back to top"
+    "text": "Hello! My name is Mehmet Ali Genç.\nThis is my personal webpage.\nPlease stay tuned to follow my works on data analytics, blog posts, and more.\n\n\n\n Back to top"
   },
   {
     "objectID": "assignments/assignment-2.html",
@@ -39,14 +39,14 @@
     "href": "about.html#internships",
     "title": "About Me",
     "section": "Internships",
-    "text": "Internships\n\nFirm aaa, position xx, year xxx\nFirm bbb, position yyy, year yyy"
+    "text": "Internships\n\nFirm Adopen, position Production Planning Intern, year 2022"
   },
   {
     "objectID": "assignments/assignment-1.html",
     "href": "assignments/assignment-1.html",
     "title": "Assignment 1",
     "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
+    "text": "1 + 1\n\n[1] 2\nMy first assignment has two parts."
   },
   {
     "objectID": "assignments.html",
@@ -61,5 +61,33 @@
     "title": "My Blog",
     "section": "",
     "text": "This page is under construction.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#aasd",
+    "href": "assignments/assignment-1.html#aasd",
+    "title": "Assignment 1",
+    "section": "(a)asd",
+    "text": "(a)asd"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#basd",
+    "href": "assignments/assignment-1.html#basd",
+    "title": "Assignment 1",
+    "section": "(b)asd",
+    "text": "(b)asd"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#a-httpswww.youtube.comwatchvdgrszaemzji-i-watched-this-video-because-the-requirement-said-any-r-related-video-and-answering-the-question-might-be-fun-but-apperently-i-was-wrong-because-video-was-not-funny-and-honestly-i-cannot-say-that-i-totally-understand.-but-i-am-submitting-this-assignment-way-past-the-due-date-and-doesnt-expect-a-grade-or-a-evaluation-so-i-hope-this-silly-answer-at-least-bring-a-smile-to-your-face",
+    "href": "assignments/assignment-1.html#a-httpswww.youtube.comwatchvdgrszaemzji-i-watched-this-video-because-the-requirement-said-any-r-related-video-and-answering-the-question-might-be-fun-but-apperently-i-was-wrong-because-video-was-not-funny-and-honestly-i-cannot-say-that-i-totally-understand.-but-i-am-submitting-this-assignment-way-past-the-due-date-and-doesnt-expect-a-grade-or-a-evaluation-so-i-hope-this-silly-answer-at-least-bring-a-smile-to-your-face",
+    "title": "Assignment 1",
+    "section": "(a) https://www.youtube.com/watch?v=DGrszAeMZJI I watched this video because the requirement said “Any R-related video” and answering the question might be fun but apperently I was wrong because video was not funny and honestly I cannot say that I totally understand. But I am submitting this assignment way past the due date, and doesn’t expect a grade or a evaluation, so I hope this silly answer at least bring a smile to your face",
+    "text": "(a) https://www.youtube.com/watch?v=DGrszAeMZJI I watched this video because the requirement said “Any R-related video” and answering the question might be fun but apperently I was wrong because video was not funny and honestly I cannot say that I totally understand. But I am submitting this assignment way past the due date, and doesn’t expect a grade or a evaluation, so I hope this silly answer at least bring a smile to your face"
+  },
+  {
+    "objectID": "assignments/assignment-1.html#b",
+    "href": "assignments/assignment-1.html#b",
+    "title": "Assignment 1",
+    "section": "(b)",
+    "text": "(b)"
   }
 ]
