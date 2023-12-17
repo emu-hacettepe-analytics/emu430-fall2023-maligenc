@@ -21,6 +21,10 @@ sidebar: false
 
 # Projects
 
+Data Analytics Project With the Team Germen_Obasi
+
+<https://github.com/emu-hacettepe-analytics/emu430-fall2023-team-germen_obasi>
+
 # Competencies
 
 R, Quarto, Git, Python
