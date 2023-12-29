@@ -130,17 +130,33 @@ I've seen the trailers of the "Cumali Ceber" series and I think this movies woul
 c)
 ```{r}
 
-DataFrame$Release <- as.Date(DataFrame$Release, format = "%Y")
-
+{r}
+library(ggplot2)
 # Calculate yearly rating averages
-avg_ratings <- DataFrame %>%
-  group_by(year = lubridate::year(Release)) %>%
-  summarise(avg_rating = mean(Rating))
+rating_avg_by_year <- DataFrame %>%
+  group_by(Release) %>%
+  summarise(avg_rating = mean(Rating),
+            num_movies = n())
 
-# Plot the scatter plot
-ggplot(avg_ratings, aes(x = year, y = avg_rating)) +
+ggplot(rating_avg_by_year, aes(x = Release, y = avg_rating)) +
   geom_point() +
-  labs(title = "Yearly Rating Averages",
+  labs(title = "Scatter Plot of Average Ratings of Turkish Movies Over the Years",
        x = "Year",
-       y = "Average Rating")
+       y = "Average Rating") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
 ```
+
+This graph shows a significant decline in movie ratings over the years.
+
+```{r}
+
+ggplot(DataFrame, aes(x = as.factor(Release), y = Rating)) + 
+  geom_boxplot() +
+  labs(x = "Year",
+      y = "Ratings")+ ggtitle("Yearly Ratings")+
+  theme(axis.text.x = element_text(angle = 90, hjust=1))
+
+```
+
+On the contrary, upon examining this table, it is evident that the median of the ratings over the years has remained relatively stable. Additionally, there is a notable presence of high-quality movies in recent years. This observation could be indicative of a decrease in the cost of filmmaking with the advancement of technology. Nowadays, anyone can produce a film with just an iPhone and a basic computer. However, this accessibility might lead to the production of a larger number of lower-quality movies, contributing to a decline in the overall average of film ratings.
