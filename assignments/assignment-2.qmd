@@ -5,5 +5,112 @@ title: "Assignment 2"
 # Assignment 2
 
 ```{r}
-1 + 1
+library(tidyverse) # for everything :)
+library(rvest) # for HTML scraping
+library(stringr) # for string processing
+
+# Define the URL to scrape
+url <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2011-01-01,2023-12-31&sort=moviemeter,desc&num_votes=2499,&countries=TR&count=250"  # Replace with the actual URL you want to scrape
+url2 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=,2010-12-31&sort=moviemeter,desc&num_votes=2500,&countries=TR&count=250"
+
+
+
+
+# Use read_html() to read the HTML content from the URL
+html_content <- read_html(url)
+html_content2 <- read_html(url2)
+
+ 
+# extract titles (movie names) ++
+title_names <- html_content |> html_nodes('.ipc-title__text')
+title_names <- html_text(title_names)
+title_names <- tail(head(title_names,-1),-1)
+title_names <- str_split(title_names, " ", n=2)
+title_names <- unlist(lapply(title_names, function(x) {x[2]}))
+#==================================================================
+title_names2 <- html_content2 |> html_nodes('.ipc-title__text')
+title_names2 <- html_text(title_names2)
+title_names2 <- tail(head(title_names2,-1),-1)
+title_names2 <- str_split(title_names2, " ", n=2)
+title_names2 <- unlist(lapply(title_names2, function(x) {x[2]}))
+
+title <- unlist(c(title_names, title_names2))
+
+
+
+# extract years ++
+year <- html_content |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)')
+year <- html_text(year)
+convert_to_numeric <- function(x) {
+  ifelse(grepl("k$", x), as.numeric(sub("k$", "", x)) * 1000, as.numeric(x))
+}
+year <- sapply(year, convert_to_numeric)
+#=================================================================================================
+year2 <- html_content2 |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(1)')
+year2 <- html_text(year2)
+convert_to_numeric <- function(x) {
+  ifelse(grepl("k$", x), as.numeric(sub("k$", "", x)) * 1000, as.numeric(x))
+}
+year2 <- sapply(year2, convert_to_numeric)
+
+release <- unlist(c(year, year2))
+
+# extract the vote counts ++
+votes <- html_content |> html_nodes('.sc-53c98e73-0.kRnqtn')
+votes <- html_text(votes)
+votes <- as.numeric(gsub("[^0-9]", "", votes))
+#=================================================================================================
+votes2 <- html_content2 |> html_nodes('.sc-53c98e73-0.kRnqtn')
+votes2 <- html_text(votes2)
+votes2 <- as.numeric(gsub("[^0-9]", "", votes2))
+
+
+vote <- unlist(c(votes, votes2))
+
+
+# extract the durations ++
+duration <- html_content |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(2)')
+duration <- html_text(duration)
+hours <- as.numeric(str_extract(duration, "\\d+(?=h)"))
+hours[is.na(hours)] <- 0
+minutes <- as.numeric(str_extract(duration, "\\d+(?=m)"))
+minutes[is.na(minutes)] <- 0
+total_minutes <- hours * 60 + minutes
+#=================================================================================================
+duration2 <- html_content2 |> html_nodes('.sc-43986a27-8.jHYIIK.dli-title-metadata-item:nth-child(2)')
+duration2 <- html_text(duration2)
+hours2 <- as.numeric(str_extract(duration2, "\\d+(?=h)"))
+hours2[is.na(hours2)] <- 0
+minutes2 <- as.numeric(str_extract(duration2, "\\d+(?=m)"))
+minutes2[is.na(minutes2)] <- 0
+total_minutes2 <- hours2 * 60 + minutes2
+
+
+total_time <- unlist(c(total_minutes, total_minutes2))
+
+
+
+rating <- html_content |> html_nodes('.ratingGroup--imdb-rating')
+rating <- html_text(rating)
+rating <- str_extract(rating, "\\d+\\.\\d+") %>%as.numeric()
+#=================================================================================================
+rating2 <- html_content2 |> html_nodes('.ratingGroup--imdb-rating')
+rating2 <- html_text(rating2)
+rating2 <- str_extract(rating2, "\\d+\\.\\d+") %>%as.numeric()
+
+
+ratings <- unlist(c(rating, rating2))
+
+#DataFrame <- merge(title, release,vote, total_time, ratings)
+
+
+DataFrame <- bind_cols(
+  
+  MovieTitle=title,
+  Release=release,
+  Rating = ratings,
+  Votes = vote,
+  Duration=total_time
+  
+)
 ```
