@@ -114,3 +114,33 @@ DataFrame <- bind_cols(
   
 )
 ```
+
+
+Question 3
+a)
+```{r}
+DataFrame <- arrange(DataFrame,desc(Rating))
+print(head(DataFrame))
+print(tail(DataFrame))
+```
+
+To be honest I'm not much of a movie guy so I didn't watch any of this films, but
+I've seen the trailers of the "Cumali Ceber" series and I think this movies would have worse ratings if it was possible
+
+c)
+```{r}
+
+DataFrame$Release <- as.Date(DataFrame$Release, format = "%Y")
+
+# Calculate yearly rating averages
+avg_ratings <- DataFrame %>%
+  group_by(year = lubridate::year(Release)) %>%
+  summarise(avg_rating = mean(Rating))
+
+# Plot the scatter plot
+ggplot(avg_ratings, aes(x = year, y = avg_rating)) +
+  geom_point() +
+  labs(title = "Yearly Rating Averages",
+       x = "Year",
+       y = "Average Rating")
+```
